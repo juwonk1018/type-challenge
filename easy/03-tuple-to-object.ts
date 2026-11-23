@@ -20,6 +20,13 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
+/*
+  놓친 것
+  - 매핑 타입의 키 자리는 대괄호가 필요함. `{K in T[number]: K}`는 문법 오류, `{ [K in T[number]]: K }`가 맞음
+  - `T[number]`는 튜플 요소 전체의 유니온. `['a', 'b']`면 `'a' | 'b'`
+  - 제약이 `readonly any[]`면 `[[1, 2], {}]`처럼 키가 될 수 없는 요소도 통과함. `PropertyKey`로 좁혀야 오류가 남
+  - `PropertyKey`는 `string | number | symbol`을 묶은 내장 타입
+*/
 type TupleToObject<T extends readonly PropertyKey[]> = { [K in T[number]]: K };
 
 /* _____________ 테스트 케이스 _____________ */
