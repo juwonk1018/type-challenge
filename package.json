@@ -1,0 +1,14 @@
+{
+  "name": "type-challenge",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@type-challenges/utils": "^0.1.1",
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3"
+  }
+}

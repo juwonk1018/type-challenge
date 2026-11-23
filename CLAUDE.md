@@ -1,0 +1,40 @@
+# type-challenge
+
+## 목적
+
+[type-challenges](https://github.com/type-challenges/type-challenges)의 warm-up·easy·medium 118문제를 사용자가 직접 풀며 TypeScript 타입 시스템을 익히는 학습용 저장소다.
+
+- 문제 풀이는 사용자가 한다. 요청받지 않은 정답 코드를 문제 파일에 채우지 않는다.
+- 문제 목록, 푸는 순서, 사용법은 [README.md](README.md)에 있다.
+
+## 기술 스택
+
+- TypeScript 5.x (원본 저장소가 `^5.3.3` 기준이라 5.x로 고정했다)
+- `@type-challenges/utils` (`Expect`, `Equal` 등 테스트용 타입)
+- Node.js 22.18 이상 (`scripts/check.ts`를 빌드 없이 타입 스트리핑으로 실행한다)
+
+## 디렉토리 구조
+
+| 경로 | 역할 |
+|---|---|
+| `easy/` | warm-up 1문제와 easy 13문제. `NN-슬러그.ts` |
+| `medium/` | medium 104문제. `NNN-슬러그.ts` |
+| `scripts/check.ts` | 문제별 통과 여부를 출력하는 스크립트 |
+
+## 문제 파일 규칙
+
+- 한 파일이 한 문제다. 문제 설명 주석, `여기에 코드 작성`, `테스트 케이스`, `다음 단계` 순서로 구성한다.
+- 파일 이름 앞의 숫자는 푸는 순서이고, 원본 문제 번호는 파일 맨 위 주석 첫 줄에 있다.
+- `테스트 케이스` 아래는 원본 그대로 두고 수정하지 않는다.
+- 통과 기준은 그 파일의 타입 오류가 0개인 것이다.
+- 모든 문제 파일은 `import`가 있는 모듈이라 파일끼리 타입 이름이 겹쳐도 충돌하지 않는다. 새 파일을 추가할 때도 이 조건을 지킨다.
+- 템플릿의 `any`는 원본 문제의 자리표시자라 그대로 둔다. `scripts/`의 코드에는 `any`를 쓰지 않는다.
+
+## 실행
+
+| 명령 | 하는 일 |
+|---|---|
+| `npm install` | 의존성 설치 |
+| `npm run check` | 전체 문제의 통과 여부 출력 |
+| `npm run check -- easy/01` | 경로가 일치하는 문제만 검사하고 오류 상세 출력 |
+| `npm run typecheck` | `tsc --noEmit`. 안 푼 문제의 오류가 모두 나오므로 `scripts/` 검증용으로만 쓴다 |

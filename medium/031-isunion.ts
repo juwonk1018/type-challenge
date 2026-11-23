@@ -1,0 +1,47 @@
+/*
+  1097 - IsUnion
+  --------------
+  난이도: medium · 태그: union · 출제: null (@bencor)
+
+  ### 문제
+
+  `T`를 입력으로 받고, `T`가 `Union` 유형으로 확인되는지 여부를 반환하는 `IsUnion`을 구현하세요
+
+  예시:
+
+  ```ts
+  type case1 = IsUnion<string> // false
+  type case2 = IsUnion<string | number> // true
+  type case3 = IsUnion<[string | number]> // false
+  ```
+
+  > 원문: https://github.com/type-challenges/type-challenges/blob/main/questions/01097-medium-isunion/README.md
+*/
+
+/* _____________ 여기에 코드 작성 _____________ */
+
+type IsUnion<T> = any
+
+/* _____________ 테스트 케이스 _____________ */
+import type { Equal, Expect } from '@type-challenges/utils'
+
+type cases = [
+  Expect<Equal<IsUnion<string>, false>>,
+  Expect<Equal<IsUnion<string | number>, true>>,
+  Expect<Equal<IsUnion<'a' | 'b' | 'c' | 'd'>, true>>,
+  Expect<Equal<IsUnion<undefined | null | void | ''>, true>>,
+  Expect<Equal<IsUnion<{ a: string } | { a: number }>, true>>,
+  Expect<Equal<IsUnion<{ a: string | number }>, false>>,
+  Expect<Equal<IsUnion<[string | number]>, false>>,
+  // Cases where T resolves to a non-union type.
+  Expect<Equal<IsUnion<string | never>, false>>,
+  Expect<Equal<IsUnion<string | unknown>, false>>,
+  Expect<Equal<IsUnion<string | any>, false>>,
+  Expect<Equal<IsUnion<string | 'a'>, false>>,
+  Expect<Equal<IsUnion<never>, false>>,
+]
+
+/* _____________ 다음 단계 _____________ */
+/*
+  > 다른 사람 풀이 보기: https://tsch.js.org/1097/solutions
+*/
