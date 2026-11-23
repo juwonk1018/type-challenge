@@ -29,31 +29,39 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type MyPick<T, K> = any
+/*
+  놓친 것
+  - K에 제약이 없었음. 선언부에 `K extends keyof T`를 걸어야 'invalid'를 넘긴 줄에서 오류가 남
+  - `[P in K extends keyof T ? K : never]`는 제약이 아니라 필터라서, 오류 없이 걸러지기만 함
+  - `// @ts-expect-error`는 "다음 줄이 오류여야 통과"라는 뜻
+*/
+type MyPick<T, K extends keyof T> = {
+  [P in K]: T[P];
+};
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<Expected1, MyPick<Todo, 'title'>>>,
-  Expect<Equal<Expected2, MyPick<Todo, 'title' | 'completed'>>>,
+  Expect<Equal<Expected1, MyPick<Todo, "title">>>,
+  Expect<Equal<Expected2, MyPick<Todo, "title" | "completed">>>,
   // @ts-expect-error
-  MyPick<Todo, 'title' | 'completed' | 'invalid'>,
-]
+  MyPick<Todo, "title" | "completed" | "invalid">,
+];
 
 interface Todo {
-  title: string
-  description: string
-  completed: boolean
+  title: string;
+  description: string;
+  completed: boolean;
 }
 
 interface Expected1 {
-  title: string
+  title: string;
 }
 
 interface Expected2 {
-  title: string
-  completed: boolean
+  title: string;
+  completed: boolean;
 }
 
 /* _____________ 다음 단계 _____________ */
