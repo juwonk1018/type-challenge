@@ -18,23 +18,23 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type Push<T, U> = any
+type Push<T, U> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Push<[], 1>, [1]>>,
-  Expect<Equal<Push<[1, 2], '3'>, [1, 2, '3']>>,
-  Expect<Equal<Push<['1', 2, '3'], boolean>, ['1', 2, '3', boolean]>>,
-]
+  Expect<Equal<Push<[1, 2], "3">, [1, 2, "3"]>>,
+  Expect<Equal<Push<["1", 2, "3"], boolean>, ["1", 2, "3", boolean]>>,
+];
 
 type errors = [
   // @ts-expect-error
   Expect<Equal<Push<number[], string>, string[]>>,
   // @ts-expect-error
   Expect<Equal<Push<string[], number>, [string, number]>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -23,16 +23,20 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-declare function PromiseAll(values: any): any
+declare function PromiseAll(values: any): any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-const promiseAllTest1 = PromiseAll([1, 2, 3] as const)
-const promiseAllTest2 = PromiseAll([1, 2, Promise.resolve(3)] as const)
-const promiseAllTest3 = PromiseAll([1, 2, Promise.resolve(3)])
-const promiseAllTest4 = PromiseAll<Array<number | Promise<number>>>([1, 2, 3])
-const promiseAllTest5 = PromiseAll<(number | Promise<string>)[]>([1, 2, Promise.resolve('3')])
+const promiseAllTest1 = PromiseAll([1, 2, 3] as const);
+const promiseAllTest2 = PromiseAll([1, 2, Promise.resolve(3)] as const);
+const promiseAllTest3 = PromiseAll([1, 2, Promise.resolve(3)]);
+const promiseAllTest4 = PromiseAll<Array<number | Promise<number>>>([1, 2, 3]);
+const promiseAllTest5 = PromiseAll<(number | Promise<string>)[]>([
+  1,
+  2,
+  Promise.resolve("3"),
+]);
 
 type cases = [
   Expect<Equal<typeof promiseAllTest1, Promise<[1, 2, 3]>>>,
@@ -40,7 +44,7 @@ type cases = [
   Expect<Equal<typeof promiseAllTest3, Promise<[number, number, number]>>>,
   Expect<Equal<typeof promiseAllTest4, Promise<number[]>>>,
   Expect<Equal<typeof promiseAllTest5, Promise<(number | string)[]>>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

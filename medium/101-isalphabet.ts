@@ -12,19 +12,19 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type IsAlphabet<S extends string> = any
+type IsAlphabet<S extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<IsAlphabet<'A'>, true>>,
-  Expect<Equal<IsAlphabet<'z'>, true>>,
-  Expect<Equal<IsAlphabet<'9'>, false>>,
-  Expect<Equal<IsAlphabet<'!'>, false>>,
-  Expect<Equal<IsAlphabet<'😂'>, false>>,
-  Expect<Equal<IsAlphabet<''>, false>>,
-]
+  Expect<Equal<IsAlphabet<"A">, true>>,
+  Expect<Equal<IsAlphabet<"z">, true>>,
+  Expect<Equal<IsAlphabet<"9">, false>>,
+  Expect<Equal<IsAlphabet<"!">, false>>,
+  Expect<Equal<IsAlphabet<"😂">, false>>,
+  Expect<Equal<IsAlphabet<"">, false>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

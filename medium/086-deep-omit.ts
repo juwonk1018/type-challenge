@@ -30,26 +30,33 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type DeepOmit = any
+type DeepOmit = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type obj = {
   person: {
-    name: string
+    name: string;
     age: {
-      value: number
-    }
-  }
-}
+      value: number;
+    };
+  };
+};
 
 type cases = [
-  Expect<Equal<DeepOmit<obj, 'person'>, {}>>,
-  Expect<Equal<DeepOmit<obj, 'person.name'>, { person: { age: { value: number } } }>>,
-  Expect<Equal<DeepOmit<obj, 'name'>, obj>>,
-  Expect<Equal<DeepOmit<obj, 'person.age.value'>, { person: { name: string, age: {} } }>>,
-]
+  Expect<Equal<DeepOmit<obj, "person">, {}>>,
+  Expect<
+    Equal<DeepOmit<obj, "person.name">, { person: { age: { value: number } } }>
+  >,
+  Expect<Equal<DeepOmit<obj, "name">, obj>>,
+  Expect<
+    Equal<
+      DeepOmit<obj, "person.age.value">,
+      { person: { name: string; age: {} } }
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

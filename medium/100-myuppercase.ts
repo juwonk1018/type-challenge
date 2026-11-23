@@ -12,16 +12,18 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type MyUppercase<T extends string> = any
+type MyUppercase<T extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<MyUppercase<'a'>, 'A'>>,
-  Expect<Equal<MyUppercase<'Z'>, 'Z'>>,
-  Expect<Equal<MyUppercase<'A z h yy 😃cda\n\t  a   '>, 'A Z H YY 😃CDA\n\t  A   '>>,
-]
+  Expect<Equal<MyUppercase<"a">, "A">>,
+  Expect<Equal<MyUppercase<"Z">, "Z">>,
+  Expect<
+    Equal<MyUppercase<"A z h yy 😃cda\n\t  a   ">, "A Z H YY 😃CDA\n\t  A   ">
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

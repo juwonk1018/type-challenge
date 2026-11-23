@@ -19,19 +19,19 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type If<C, T, F> = any
+type If<C, T, F> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<If<true, 'a', 'b'>, 'a'>>,
-  Expect<Equal<If<false, 'a', 2>, 2>>,
-  Expect<Equal<If<boolean, 'a', 2>, 'a' | 2>>,
-]
+  Expect<Equal<If<true, "a", "b">, "a">>,
+  Expect<Equal<If<false, "a", 2>, 2>>,
+  Expect<Equal<If<boolean, "a", 2>, "a" | 2>>,
+];
 
 // @ts-expect-error
-type error = If<null, 'a', 'b'>
+type error = If<null, "a", "b">;
 
 /* _____________ 다음 단계 _____________ */
 /*

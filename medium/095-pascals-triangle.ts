@@ -13,41 +13,16 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type Pascal<N extends number> = any
+type Pascal<N extends number> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
+  Expect<Equal<Pascal<1>, [[1]]>>,
+  Expect<Equal<Pascal<3>, [[1], [1, 1], [1, 2, 1]]>>,
   Expect<
-    Equal<
-      Pascal<1>,
-      [
-        [1],
-      ]
-    >
-  >,
-  Expect<
-    Equal<
-      Pascal<3>,
-      [
-        [1],
-        [1, 1],
-        [1, 2, 1],
-      ]
-    >
-  >,
-  Expect<
-    Equal<
-      Pascal<5>,
-      [
-        [1],
-        [1, 1],
-        [1, 2, 1],
-        [1, 3, 3, 1],
-        [1, 4, 6, 4, 1],
-      ]
-    >
+    Equal<Pascal<5>, [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]>
   >,
   Expect<
     Equal<
@@ -63,7 +38,7 @@ type cases = [
       ]
     >
   >,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

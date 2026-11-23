@@ -16,17 +16,17 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type CompareArrayLength<T extends any[], U extends any[]> = any
+type CompareArrayLength<T extends any[], U extends any[]> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<CompareArrayLength<[1, 2, 3, 4], [5, 6]>, 1>>,
   Expect<Equal<CompareArrayLength<[1, 2], [3, 4, 5, 6]>, -1>>,
   Expect<Equal<CompareArrayLength<[], []>, 0>>,
   Expect<Equal<CompareArrayLength<[1, 2, 3], [4, 5, 6]>, 0>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

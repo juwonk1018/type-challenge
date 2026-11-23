@@ -24,10 +24,10 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type IsEqual<X, Y> = any
+type IsEqual<X, Y> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<IsEqual<number, string>, false>>,
@@ -36,7 +36,7 @@ type cases = [
   Expect<Equal<IsEqual<1 | 2, 1>, false>>,
   Expect<Equal<IsEqual<any, never>, false>>,
   Expect<Equal<IsEqual<[any], [number]>, false>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

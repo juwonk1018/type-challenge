@@ -19,17 +19,17 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type CheckRepeatedChars<T extends string> = any
+type CheckRepeatedChars<T extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<CheckRepeatedChars<'abc'>, false>>,
-  Expect<Equal<CheckRepeatedChars<'abb'>, true>>,
-  Expect<Equal<CheckRepeatedChars<'cbc'>, true>>,
-  Expect<Equal<CheckRepeatedChars<''>, false>>,
-]
+  Expect<Equal<CheckRepeatedChars<"abc">, false>>,
+  Expect<Equal<CheckRepeatedChars<"abb">, true>>,
+  Expect<Equal<CheckRepeatedChars<"cbc">, true>>,
+  Expect<Equal<CheckRepeatedChars<"">, false>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -24,15 +24,15 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type IsFixedStringLiteralType<S extends string> = any
+type IsFixedStringLiteralType<S extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type testcase =
-  | Expect<Equal<IsFixedStringLiteralType<'ABC'>, true>>
+  | Expect<Equal<IsFixedStringLiteralType<"ABC">, true>>
   | Expect<Equal<IsFixedStringLiteralType<string>, false>>
-  | Expect<Equal<IsFixedStringLiteralType<'ABC' | 'DEF'>, false>>
+  | Expect<Equal<IsFixedStringLiteralType<"ABC" | "DEF">, false>>
   | Expect<Equal<IsFixedStringLiteralType<never>, false>>
   | Expect<Equal<IsFixedStringLiteralType<`${string}`>, false>>
   | Expect<Equal<IsFixedStringLiteralType<`${string & {}}`>, false>>
@@ -70,7 +70,7 @@ type testcase =
   | Expect<Equal<IsFixedStringLiteralType<`ABC${false}DEF`>, true>>
   | Expect<Equal<IsFixedStringLiteralType<`ABC${null}DEF`>, true>>
   | Expect<Equal<IsFixedStringLiteralType<`ABC${undefined}DEF`>, true>>
-  | true
+  | true;
 
 /* _____________ 다음 단계 _____________ */
 /*

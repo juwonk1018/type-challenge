@@ -19,10 +19,10 @@
 
 /* _____________ 여기에 코드 작성 _____________ */
 
-type MinusOne<T extends number> = any
+type MinusOne<T extends number> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<MinusOne<1>, 0>>,
@@ -31,7 +31,7 @@ type cases = [
   Expect<Equal<MinusOne<100>, 99>>,
   Expect<Equal<MinusOne<1101>, 1100>>,
   Expect<Equal<MinusOne<9_007_199_254_740_992>, 9_007_199_254_740_991>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*
